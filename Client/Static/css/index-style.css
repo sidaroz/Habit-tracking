@@ -10,6 +10,7 @@ body{
 
 body > nav > div > a {
     margin:auto;
+    color: white !important;
 }
 
 
@@ -73,3 +74,34 @@ body > section> form{
     padding-top:30%;
 }
 
+/* ALL POSTS FORM */
+
+nav{
+    display:flex;
+}
+
+.containerTab {
+    display:none;
+    background:rgb(33,37,41,0.8);
+}
+
+.closebtn {
+    color:white;
+    font-size: xx-large;
+    position: absolute;
+    right:10px;
+}
+
+.addHabitTitle {
+    color:white;
+}
+
+.form-group{
+    display:flex;
+    align-items:center;
+    color:white;
+}
+
+.frequency{
+    padding-right: 10px;
+}
