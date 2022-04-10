@@ -31,8 +31,9 @@ function updateContent(){
     // console.log(path)
     // console.log(!currentUser())
     // console.log(privateRoutes.includes(path))
-    if (privateRoutes.includes(path) && !currentUser()){  
-        window.location.hash = '#';        
+    if (privateRoutes.includes(path) && !currentUser() ){  
+        window.location.hash = '#';    
+        // console.log('fired')    
     } else {                                
         // console.log('Else fired :)')
         // updateNav();
@@ -40,6 +41,15 @@ function updateContent(){
     }
 }
 
+
+function openTab(tabName) {
+    var i, x;
+    x = document.getElementsByClassName("containerTab");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+  }
 
 updateContent(); 
 
