@@ -1,0 +1,75 @@
+body{
+    background: url(/Client/Static/habit.png);
+    background-repeat:repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
+
+
+body > nav > div > a {
+    margin:auto;
+}
+
+
+.home-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:57%;
+    padding-bottom: 57%;
+}
+
+
+.buttons{
+    display:inline-block;
+    text-align:center;
+    text-decoration:none;
+    vertical-align:middle;
+    user-select:none;
+    font-size:1rem;
+    border-radius:0.25rem;
+    width:200px;
+    background-color:rgb(33,37,41);
+    border-color:rgb(33,37,41);
+    padding: 1rem;
+    margin: 1rem 0rem 1rem 0rem;
+    color:white; 
+}
+
+.absolute{
+    position: absolute;
+    bottom: 0px;
+}
+
+/* LOGIN PAGE */
+
+body > section> form{
+    border:1px solid black;
+    border-radius: 20px;
+    width:70%;
+    margin: auto auto auto auto;
+    align-items: center;
+    background-color: rgb(33,37,41);
+    color: white;
+    font-family:Fredoka;
+}
+
+.login-form {
+    padding-top:50%
+}
+
+.padding{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:3% 5% 3% 5%;
+}
+
+/* REGISTRATION FORM  */
+
+.register-form {
+    padding-top:30%;
+}
+
