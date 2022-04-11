@@ -30,10 +30,8 @@ function updateMain(path) {
 
 function updateContent() {
   const path = window.location.hash;
-  console.log('triggered')
-  console.log(path)
   if (privateRoutes.includes(path) && !currentUser()) {
-       window.location.hash = "#";
+    window.location.hash = "#";
   } else {
     updateMain(path);
   }
@@ -50,13 +48,13 @@ function openTab(tabName) {
 
 updateContent();
 
-function createFooter(){
-    // IF YOU HAVE TIME, SIMPLIFY THE CODE BY CREATING THE FOOTER FOR ALL PAGES HERE.
+function createFooter() {
+  // IF YOU HAVE TIME, SIMPLIFY THE CODE BY CREATING THE FOOTER FOR ALL PAGES HERE.
 }
 
-function updateNav(){
-    // IF YOU HAVE TIME, SIMPLIFY THE CODE BY CREATING THE FOOTER FOR ALL PAGES HERE/
-    //YOU CAN ADD A IF STATEMENT, IF THERE IS A USER, THEN CREATE THIS NAV BAR, IF NOT, CREATE THE PUBLIC ONE.
+function updateNav() {
+  // IF YOU HAVE TIME, SIMPLIFY THE CODE BY CREATING THE FOOTER FOR ALL PAGES HERE/
+  //YOU CAN ADD A IF STATEMENT, IF THERE IS A USER, THEN CREATE THIS NAV BAR, IF NOT, CREATE THE PUBLIC ONE.
 }
 
 // Sidars changes
@@ -67,10 +65,8 @@ function updateNav(){
 // const btnRegister = document.querySelector(".btn-register");
 // const registerSection = document.querySelector(".register-form");
 
-
 //   const login = document.querySelector("form");
 //   login.addEventListener("submit", submitLoginForm);
-
 
 //   const register = document.querySelector("form");
 //   register.addEventListener("submit", submitRegisterForm);

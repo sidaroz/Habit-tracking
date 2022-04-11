@@ -11,8 +11,11 @@ DROP TABLE IF EXISTS habits;
 
 CREATE TABLE habits (
     id serial PRIMARY KEY,
-    username varchar NOT NULL,
-    habits_id varchar NOT NULL ,
+    email varchar NOT NULL,
+    habit_id varchar NOT NULL ,
     repetition int NOT NULL,
+    cur_repetition int NOT NULL,
+    streak int NOT NULL,
     frequency varchar NOT NULL
 );
+
