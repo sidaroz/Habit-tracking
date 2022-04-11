@@ -30,15 +30,10 @@ async function findHabitById(req, res) {
 }
 async function deleteHabit(req, res) {
   try {
-    const selectedHabit = await Habit.findHabitById(req.params);
-    console.log(typeof req.params.id);
-    console.log(selectedHabit);
-    console.log("Is this fine");
-    await selectedHabit.deleteHabit();
-    console.log("This wont show");
-    res.status(204).json({ msg: "Deleted this habit" });
+    const habit = await Habit.deleteHabit(req.params.id);
+    res.status(204).send("Deleted this habit");
   } catch (err) {
-    res.status(500).json("Failed to delete");
+    res.status(500).send("loser");
   }
 }
 

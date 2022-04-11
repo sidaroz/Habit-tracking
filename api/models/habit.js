@@ -82,13 +82,12 @@ class Habit {
     });
   }
 
-  deleteHabit(data) {
+  static deleteHabit(id) {
     return new Promise(async (res, rej) => {
       try {
-        const { id } = data;
-        console.log(id);
-        console.log("function called");
-        await db.query(`DELETE FROM habits WHERE id = $1;`, [this.id]);
+        const result = await db.query(`DELETE FROM habits WHERE id = $1;`, [
+          id,
+        ]);
         res("Habit was deleted");
       } catch (error) {
         rej("Habit could not be deleted");
