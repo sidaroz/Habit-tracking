@@ -56,6 +56,7 @@ async function login(req, res) {
 }
 
 function verifyToken(req, res, next) {
+  // console.log('verifyToken function called')
   const header = req.headers["authorization"];
   if (header) {
     const token = header.split(" ")[1];

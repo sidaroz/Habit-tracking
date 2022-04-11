@@ -114,8 +114,14 @@ function renderRegisterForm() {
   register.addEventListener("submit", submitRegisterForm);
 }
 
+
 async function renderFeed() {
-  body.innerHTML = `<nav class="navbar navbar-light bg-dark py-3" >
+    // location.reload()
+    const r = await getAllPosts()
+    console.log(r)
+
+    
+  body.innerHTML = await `<nav class="navbar navbar-light bg-dark py-3" >
     <div class="container-fluid">
         <button class="btn btn-primary" onclick="openTab('b1');">Add Habit</button>
         <a class="navbar-brand" >Group Name</a>
@@ -153,17 +159,10 @@ async function renderFeed() {
 <h1 style="text-align:center">View all Habits Below</h1>
 
 <div  class="habitSection"> 
-    <button class="btn btn-primary">+</button>
-
-    <div style="display:flex; background:rgb(33,37,41,0.8); color:white; padding:0.5rem; border-radius: 10px; margin:0px 10px; width:100%; justify-content: center;" class="container">
-        <div class="row">
-            <div class="col">3/8 Daily</div> 
-            <div class="col" >Drink Water</div>
-            <div class="col">🔥0</div>
-        </div>
-    </div>
-    <button class="btn btn-primary">x</button>
+    
+    
 </div>
+
 </section>  
 <div class="container absolute bg-dark whole-footer" >
     <footer class="my-4">
@@ -182,6 +181,24 @@ async function renderFeed() {
 
   const logoutBtn = document.querySelector("#logoutBtn");
   logoutBtn.addEventListener("click", logout);
+
+  const habitSection = document.querySelector('.habitSection')
+    // console.log(habitSection)
+    // const hello = document.querySelector('.hello')
+  r.forEach(element => {
+      console.log('function called')
+      const habitDiv = document.createElement('div')
+      habitDiv.innerHTML=`<button class="btn btn-primary">+</button>
+      <div style="display:flex; background:rgb(33,37,41,0.8); color:white; padding:0.5rem; border-radius: 10px; margin:0px 10px; width:100%; justify-content: center;" class="container">
+          <div class="row">
+              <div class="col">${element.cur_repetition}/${element.repetition} ${element.frequency}</div> 
+              <div class="col" >${element.habit_id}</div>
+              <div class="col">🔥${element.streak}</div>
+          </div>
+      </div>
+      <button class="btn btn-primary">x</button>`
+      habitSection.appendChild(habitDiv)
+  });
 }
 
 function render404() {
