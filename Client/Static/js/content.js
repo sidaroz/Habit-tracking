@@ -130,14 +130,14 @@ async function renderFeed() {
              <h2 class="addHabitTitle">Add Habit</h2>
         </div>
         <div>
-            <input type="text"  class="form-control" name="Habit-Name" placeholder="Enter Habit Name" required>
+            <input type="text"  class="form-control" name="habit_id" placeholder="Enter Habit Name" required>
         </div>
         <div class="py-3" class="form-control">
-            <input type="number"  class="form-control" name="Repetitions" placeholder="# of Repetitions" required>
+            <input type="number"  class="form-control" name="repetition" placeholder="# of Repetitions" required>
         </div>  
         <div class="form-group" >
             <label for="sel1" class="frequency">Frequency:</label>
-            <select class="form-control" id="sel1" name="Frequency">
+            <select class="form-control" id="sel1" name="frequency">
                 <option>Daily</option>
                 <option>Weekly</option>
                 <option>Monthly</option>
