@@ -3,7 +3,7 @@ const body = document.querySelector("body");
 const publicRoutes = ["#", "#login", "#register"];
 const privateRoutes = ["#feed"];
 
-// window.addEventListener("hashchange", updateContent);
+window.addEventListener("hashchange", updateContent);
 
 function updateMain(path) {
   body.innerHTML = "";
@@ -30,15 +30,10 @@ function updateMain(path) {
 
 function updateContent() {
   const path = window.location.hash;
-  // console.log(path)
-  // console.log(!currentUser())
-  // console.log(privateRoutes.includes(path))
+
   if (privateRoutes.includes(path) && !currentUser()) {
-    window.location.hash = "#";
-    // console.log('fired')
+       window.location.hash = "#";
   } else {
-    // console.log('Else fired :)')
-    // updateNav();
     updateMain(path);
   }
 }
@@ -52,37 +47,48 @@ function openTab(tabName) {
   document.getElementById(tabName).style.display = "block";
 }
 
-// updateContent();
+updateContent();
 
-// function createFooter(){
-//     // IF YOU HAVE TIME, SIMPLIFY THE CODE BY CREATING THE FOOTER FOR ALL PAGES HERE.
-// }
+function createFooter(){
+    // IF YOU HAVE TIME, SIMPLIFY THE CODE BY CREATING THE FOOTER FOR ALL PAGES HERE.
+}
 
-// function updateNav(){
-//     // IF YOU HAVE TIME, SIMPLIFY THE CODE BY CREATING THE FOOTER FOR ALL PAGES HERE/
-//     //YOU CAN ADD A IF STATEMENT, IF THERE IS A USER, THEN CREATE THIS NAV BAR, IF NOT, CREATE THE PUBLIC ONE.
-// }
+function updateNav(){
+    // IF YOU HAVE TIME, SIMPLIFY THE CODE BY CREATING THE FOOTER FOR ALL PAGES HERE/
+    //YOU CAN ADD A IF STATEMENT, IF THERE IS A USER, THEN CREATE THIS NAV BAR, IF NOT, CREATE THE PUBLIC ONE.
+}
 
 // Sidars changes
-//This below makes it so when you click login it updates to the login section
-const btnLogin = document.querySelector(".btn-login");
-const homePageSection = document.querySelector(".home-page");
-const loginSection = document.querySelector(".login-form");
-const btnRegister = document.querySelector(".btn-register");
-const registerSection = document.querySelector(".register-form");
+// This below makes it so when you click login it updates to the login section
+// const btnLogin = document.querySelector(".btn-login");
+// const homePageSection = document.querySelector(".home-page");
+// const loginSection = document.querySelector(".login-form");
+// const btnRegister = document.querySelector(".btn-register");
+// const registerSection = document.querySelector(".register-form");
 
-const hideMainSectionShowLogin = function () {
-  homePageSection.classList.add("hidden");
-  loginSection.classList.remove("hidden");
-};
 
-btnLogin.addEventListener("click", hideMainSectionShowLogin);
+//   const login = document.querySelector("form");
+//   login.addEventListener("submit", submitLoginForm);
 
-//Clicking register makes it so register-section opens up
 
-const hideMainSectionShowRegister = function () {
-  homePageSection.classList.add("hidden");
-  registerSection.classList.remove("hidden");
-};
+//   const register = document.querySelector("form");
+//   register.addEventListener("submit", submitRegisterForm);
 
-btnRegister.addEventListener("click", hideMainSectionShowRegister);
+//   const addHabitForm = document.querySelector("form");
+//   addHabitForm.addEventListener("submit", submitHabit);
+
+// const hideMainSectionShowLogin = function () {
+//   homePageSection.classList.add("hidden");
+//   loginSection.classList.remove("hidden");
+// };
+
+// btnLogin.addEventListener("click", hideMainSectionShowLogin);
+
+// //Clicking register makes it so register-section opens up
+
+// const hideMainSectionShowRegister = function () {
+//   homePageSection.classList.add("hidden");
+//   registerSection.classList.remove("hidden");
+// };
+
+// btnRegister.addEventListener("click", hideMainSectionShowRegister);

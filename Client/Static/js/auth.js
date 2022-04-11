@@ -3,7 +3,7 @@ async function submitLoginForm(e){
     const login = document.querySelector('form')
     const formData = new FormData(login)
     const formDataObj = Object.fromEntries(formData)
-    console.log(JSON.stringify(formDataObj))
+    // console.log(JSON.stringify(formDataObj))
     // console.log('Login Information Submitted')
     try{
         options = {
@@ -11,23 +11,26 @@ async function submitLoginForm(e){
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify(formDataObj)
         }
-        const r = await fetch('https://hookb.in/b93WV36ZM1uKGq00yg7M', options)
+        const r = await fetch('http://localhost:3000/users/login', options)
         const data = await r.json()
-        console.log(data.Email)
+        console.log(data.email)
+        // if (data.err){ throw Error(data.err); }
+        login2Feed(data)
+        // console.log(data)
     }
     catch(err){
         console.log("Error logging in")
     }
 }
 
-async function submitRegisterForm(){
-    // e.preventDefault()
+async function submitRegisterForm(e){
+    e.preventDefault()
     const register = document.querySelector('form')
     const formData = new FormData(register)                 
     const formDataObj = Object.fromEntries(formData)
-    // console.log(formDataObj)
+    console.log(formDataObj)
     
-    if(formDataObj.Password1 === formDataObj.Password2){
+    if(formDataObj.password_set === formDataObj.Password2){
         delete formDataObj['Password2']
         console.log('Register Information Submitted')
         try{
@@ -36,9 +39,10 @@ async function submitRegisterForm(){
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(formDataObj)
             }
-            const r = await fetch('https://hookb.in/Oekj0jGWKOcqOdYYxkjm', options)
+            const r = await fetch('http://localhost:3000/users/register', options)
             const data = await r.json()
             console.log(data)
+            login2Feed(data)
         }
         catch(err){
             console.log('Error sending information to the backend')
@@ -48,18 +52,20 @@ async function submitRegisterForm(){
     }
 }
 
+function login2Feed(data){
+    console.log(data)
+    localStorage.setItem('email', data.email);
+    location.hash = '#feed';
+}
+
 function currentUser(){
-    const username = localStorage.getItem('username')
+    const username = localStorage.getItem('email')
     return username;
 }
 
-// function login(data){
-//     localStorage.setItem('username', data.user);
-//     location.hash = '#feed';
-// }
 
-// function logout(){
-//     localStorage.clear();
-//     location.hash = '#login';
-// }
+function logout(){
+    localStorage.clear();
+    location.hash = '#home';
+}
 
