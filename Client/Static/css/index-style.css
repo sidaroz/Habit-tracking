@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+body{
+  background: linear-gradient(to top left, #2842b4, #6fb8d5);
+  height: 100vh;
+}
+
+
+body > nav > div > a {
+  margin:auto;
+  color: white !important;
+}
+
+
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top:57%;
+  padding-bottom: 57%;
+}
+
+
+.buttons{
+  display:inline-block;
+  text-align:center;
+  text-decoration:none;
+  vertical-align:middle;
+  user-select:none;
+  font-size:1rem;
+  border-radius:0.25rem;
+  width:200px;
+  background-color:rgb(33,37,41);
+  border-color:rgb(33,37,41);
+  padding: 1rem;
+  margin: 1rem 0rem 1rem 0rem;
+  color:white; 
+}
+
+.absolute{
+  position: absolute;
+  bottom: 0px;
+}
+
+/* LOGIN PAGE */
+
+body > section> form{
+  border:1px solid black;
+  border-radius: 20px;
+  width:70%;
+  margin: auto auto auto auto;
+  align-items: center;
+  background-color: rgb(33,37,41);
+  color: white;
+  font-family:Fredoka;
+}
+
+.login-form {
+  padding-top:50%
+}
+
+.padding{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:3% 5% 3% 5%;
+}
+
+/* REGISTRATION FORM  */
+
+.register-form {
+  padding-top:40%;
+}
+
+/* ALL POSTS FORM */
+
+nav{
+  display:flex;
+}
+
+.containerTab {
+  display:none;
+  background:rgb(33,37,41,0.8);
+}
+
+.closebtn {
+  color:white;
+  font-size: xx-large;
+  position: absolute;
+  right:10px;
+  margin-right: 15px;
+}
+
+.addHabitTitle {
+  color:white;
+}
+
+.form-group{
+  display:flex;
+  align-items:center;
+  color:white;
+}
+
+.frequency{
+  padding-right: 10px;
+}
+
+
+
+@media screen and (min-width: 400px) {
+  .home-buttons-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+  }
+
+  .login-form {
+    margin-top: 8%;
+    max-width: 50%;
+    margin-inline: auto;
+
+  }
+
+  .padding {
+    padding: 3% 0 3% 0;
+  }
+
+  .register-form {
+    padding-top: 8%;
+    max-width: 50%;
+    margin-inline: auto;
+  }
+  .navbar{
+    justify-content: space-between;
+  }
+  #logoutBtn{
+    margin:0px;
+  }
+  .navbar-brand{
+    margin:0px;
+  }
+
+  .habitSection{
+    display:flex;
+    padding:10px;
+    justify-content: center;
+  }
+} 
+
+
+.whole-footer {
+  min-width: 100%;
+}
