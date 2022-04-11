@@ -30,7 +30,8 @@ function updateMain(path) {
 
 function updateContent() {
   const path = window.location.hash;
-
+  console.log('triggered')
+  console.log(path)
   if (privateRoutes.includes(path) && !currentUser()) {
        window.location.hash = "#";
   } else {

@@ -1,8 +1,10 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+require("dotenv").config()
 
 async function createUser(req, res) {
-  console.log(req.body)
+  // console.log(req.body)
   try {
     const salt = await bcrypt.genSalt();
     const hashed = await bcrypt.hash(req.body.password_set, salt);
@@ -13,23 +15,47 @@ async function createUser(req, res) {
   }
 }
 
-async function findByEmail(req, res) {
+async function login(req, res) {
   try {
-    // console.log(req.body.password_set)
     let user = await User.findByEmail(req.body.email);
-    console.log(user)
-    if (!user) { 
-      throw new Error("No user with this email")
-    } 
+    // console.log(user.email)
+    if (!user) { throw new Error("No user with this email")}; 
     const passwordCheck = await bcrypt.compare(req.body.password_set, user.password_set);    
-    // console.log(passwordCheck)
     if (passwordCheck) {
-      res.status(201).json(user);
+      const payload = {username: user.username, email: user.email};
+      jwt.sign(payload, process.env.ACCESS_SECRET_TOKEN, { expiresIn: 60 }, sendToken);
+      function sendToken(err, token) {
+        if(err) {
+          throw new Error("Token could not be generated");
+        }
+        res.status(200).json({ 
+        user,
+        success: true,
+        token: `Bearer ${token}`});
+        }
     } else {
-        throw new Error("User could not be authenticated")
+        throw new Error("User could not be authenticated");
     }
   } catch (error) {
     res.status(401).json({ error: "User could not be logged in" });
   }
 }
-module.exports = { createUser, findByEmail };
+
+function verifyToken(req, res, next) {
+  const header = req.headers["authorization"];
+  if (header) {
+    const token = header.split(' ')[1];
+    jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, () => { //removed (err, data)
+      if(err){
+        res.status(403).json({ err: "Token not verified" });
+      } else {
+          next();
+      }
+    })
+  } else {
+    res.sendStatus(403).json({ error: "Missing token" });
+  }
+}
+
+
+module.exports = { createUser, login, verifyToken };
