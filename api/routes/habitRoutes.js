@@ -7,5 +7,6 @@ router.post("/", habitController.createHabit);
 router.get("/:email", habitController.filterHabitsByEmail);
 router.delete("/entry/:id", habitController.deleteHabit);
 router.get("/entry/:id", habitController.findHabitById);
+router.patch("/entry/:id", habitController.increaseRepCounter)
 
 module.exports = router;

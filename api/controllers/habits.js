@@ -29,9 +29,24 @@ async function findHabitById(req, res) {
     res.status(500).json({ msg: "Could not find habit by this id" });
   }
 }
+
+async function increaseRepCounter(req, res){
+  try{
+    // const habit = await Habit.findHabitById(req.params)
+    // console.log(habit)
+    const result = await Habit.increaseRepCounter(req.params.id)
+    console.log(result)
+    res.status(200).send(result)
+  }
+  catch(err){
+    res.status(500).json({msg:"loser"})
+  }
+}
+
+
 async function deleteHabit(req, res) {
   try {
-    const habit = await Habit.deleteHabit(req.params.id);
+    const habit = await Habit.deleteHabit(req.body.id);
     res.status(204).send("Deleted this habit");
   } catch (err) {
     res.status(500).send("loser");
@@ -43,4 +58,5 @@ module.exports = {
   filterHabitsByEmail,
   findHabitById,
   deleteHabit,
+  increaseRepCounter
 };

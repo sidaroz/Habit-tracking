@@ -411,6 +411,7 @@ function renderRegisterForm() {
 
 async function renderFeed() {
     const r = await getAllPosts()
+    console.log(r)
     const bodyHTML = document.querySelector('body')
     bodyHTML.innerHTML=''
     const nav = document.createElement('nav')
@@ -551,6 +552,7 @@ async function renderFeed() {
 
                     const plusBtn = document.createElement('button')
                     plusBtn.setAttribute('class','btn btn-primary')
+                    plusBtn.setAttribute('id',`add-${element.id}`)
                     plusBtn.textContent='+';
                     habitDiv.appendChild(plusBtn)
 
@@ -563,25 +565,42 @@ async function renderFeed() {
                         eachHabitDiv.appendChild(rowDiv)
 
                             const colDiv1 = document.createElement('div')
-                            colDiv1.setAttribute('class','col')
+                            colDiv1.setAttribute('class',`col rep-${element.id}`)
                             colDiv1.textContent=`${element.cur_repetition}/${element.repetition} ${element.frequency}`;
                             rowDiv.appendChild(colDiv1)
 
                             const colDiv2 = document.createElement('div')
-                            colDiv2.setAttribute('class','col')
+                            colDiv2.setAttribute('class',`col habit-${element.id}`)
                             colDiv2.textContent=`${element.habit_id}`;
                             rowDiv.appendChild(colDiv2)
 
                             const colDiv3 = document.createElement('div')
-                            colDiv3.setAttribute('class','col')
+                            colDiv3.setAttribute('class',`col streak-${element.id}`)
                             colDiv3.textContent=`🔥${element.streak}`;
                             rowDiv.appendChild(colDiv3)
 
                     const habitDeleteBtn = document.createElement('button')
                     habitDeleteBtn.setAttribute('class','btn btn-primary habitDeleteBtn')
+                    habitDeleteBtn.setAttribute('id',`${element.id}`)
                     habitDeleteBtn.textContent='x'
                     habitDiv.appendChild(habitDeleteBtn)
                     habitSection.appendChild(habitDiv)
+
+                    if(element.cur_repetition === element.repetition){
+                        const repetition = document.querySelector(`.rep-${element.id}`)
+                        const habit = document.querySelector(`.habit-${element.id}`)
+                        repetition.style.textDecoration= 'line-through';
+                        habit.style.textDecoration= 'line-through';
+
+                      }
+                    
+                    const habitDeleteBtnSleected = document.getElementById(`${element.id}`)
+                    habitDeleteBtnSleected.addEventListener('click', deleteHabit)
+
+                    const increaseCountBtnSelected = document.getElementById(`add-${element.id}`)
+                    increaseCountBtnSelected.addEventListener('click', increaseCounter)
+
+                    
               });
         
         const footerDiv = document.createElement('div')
@@ -650,6 +669,9 @@ async function renderFeed() {
 
   const logoutBtn = document.querySelector("#logoutBtn");
   logoutBtn.addEventListener("click", logout);
+
+  
+
 }
 
 function render404() {
