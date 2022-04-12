@@ -8,7 +8,6 @@ window.addEventListener("hashchange", updateContent);
 function updateMain(path) {
   body.innerHTML = "";
   if (path) {
-    // console.log(path)
     switch (path) {
       case "#login":
         renderLoginForm();
@@ -30,9 +29,13 @@ function updateMain(path) {
 
 function updateContent() {
   const path = window.location.hash;
-  if (privateRoutes.includes(path) && !currentUser()) {
+  console.log(path)
+  const checkEmail = localStorage.getItem('email')
+  if (privateRoutes.includes(path) && !checkEmail) {
+    console.log('if fired')
     window.location.hash = "#";
   } else {
+    console.log('else fired')
     updateMain(path);
   }
 }
@@ -56,36 +59,3 @@ function updateNav() {
   // IF YOU HAVE TIME, SIMPLIFY THE CODE BY CREATING THE FOOTER FOR ALL PAGES HERE/
   //YOU CAN ADD A IF STATEMENT, IF THERE IS A USER, THEN CREATE THIS NAV BAR, IF NOT, CREATE THE PUBLIC ONE.
 }
-
-// Sidars changes
-// This below makes it so when you click login it updates to the login section
-// const btnLogin = document.querySelector(".btn-login");
-// const homePageSection = document.querySelector(".home-page");
-// const loginSection = document.querySelector(".login-form");
-// const btnRegister = document.querySelector(".btn-register");
-// const registerSection = document.querySelector(".register-form");
-
-//   const login = document.querySelector("form");
-//   login.addEventListener("submit", submitLoginForm);
-
-//   const register = document.querySelector("form");
-//   register.addEventListener("submit", submitRegisterForm);
-
-//   const addHabitForm = document.querySelector("form");
-//   addHabitForm.addEventListener("submit", submitHabit);
-
-// const hideMainSectionShowLogin = function () {
-//   homePageSection.classList.add("hidden");
-//   loginSection.classList.remove("hidden");
-// };
-
-// btnLogin.addEventListener("click", hideMainSectionShowLogin);
-
-// //Clicking register makes it so register-section opens up
-
-// const hideMainSectionShowRegister = function () {
-//   homePageSection.classList.add("hidden");
-//   registerSection.classList.remove("hidden");
-// };
-
-// btnRegister.addEventListener("click", hideMainSectionShowRegister);
