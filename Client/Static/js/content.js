@@ -1,135 +1,409 @@
-async function renderHomepage() {
-    // const bodyHTML = await document.querySelector('body')
-    // bodyHTML.innerHTML=''
-
-    // const nav = document.createElement('nav')
-    // nav.setAttribute('class', 'navbar navbar-light bg-dark py-3')
-    // bodyHTML.appendChild(nav)
-
-    // console.log(nav)
-
-    //     const navDiv = document.createElement('div')
-    //     navDiv.setAttribute('class', 'container-fluid')
-    //     nav.appendChild(navDiv)
-
-    //         const aTagTitle = document.createElement('a')
-    //         aTagTitle.setAttribute('class', `navbar-brand`)
-    //         aTagTitle.setAttribute('style', `margin:auto; color:white`)
-    //         aTagTitle.textContent= 'Group Name'
-    //         navDiv.appendChild(aTagTitle)
+ function renderHomepage() {
+     const bodyHTML =  document.querySelector('body')
+     bodyHTML.innerHTML=''
+    //NAV
+    const nav = document.createElement('nav')
+    nav.setAttribute('class', 'navbar navbar-light bg-dark py-3')
+    bodyHTML.appendChild(nav)
 
 
-  body.innerHTML = `<nav class="navbar navbar-light bg-dark py-3">
-    <div class="container-fluid">
-        <a class="navbar-brand" style="margin:auto; color:white">Group Name</a>
-    </div>
-</nav>
+        const navDiv = document.createElement('div')
+        navDiv.setAttribute('class', 'container-fluid')
+        nav.appendChild(navDiv)
 
-<section>
-    <div class="home-buttons">
-        <div>
-            <a href="#login" class="buttons">Login</a>
-        </div>
-        <div>
-            <a href="#register" class="buttons">Register</a>
-        </div>
-    </div>
-</section>
+            const aTagTitle = document.createElement('a')
+            aTagTitle.setAttribute('class', `navbar-brand`)
+            aTagTitle.setAttribute('style', `margin:auto; color:white`)
+            aTagTitle.textContent= 'Group Name'
+            navDiv.appendChild(aTagTitle)
 
-<div class="container absolute bg-dark whole-footer" >
-    <footer class="my-4">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="#" class="nav-link px-2"  style="color:white">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 "  style="color:white">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 "  style="color:white">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 "  style="color:white">About</a></li>
-      </ul>
-      <p class="text-center"  style="color:white">© 2022 GroupName, Inc</p>
-    </footer>
-</div>`;
+        //SECTION 
+        const homeSection = document.createElement('section')
+        bodyHTML.appendChild(homeSection)
+
+            const homeBtnsDiv = document.createElement('div')
+            homeBtnsDiv.setAttribute('class', 'home-buttons')
+            homeSection.appendChild(homeBtnsDiv)
+
+                const loginBtnDiv = document.createElement('div')
+                homeBtnsDiv.appendChild(loginBtnDiv)
+
+                    const loginBtn = document.createElement('a')
+                    loginBtn.setAttribute('href', '#login')
+                    loginBtn.setAttribute('class', 'buttons')
+                    loginBtn.textContent='Login'
+                    loginBtnDiv.appendChild(loginBtn)
+                
+                const regBtnDiv = document.createElement('div')
+                homeBtnsDiv.appendChild(regBtnDiv)
+
+                    const regBtn = document.createElement('a')
+                    regBtn.setAttribute('href', '#register')
+                    regBtn.setAttribute('class', 'buttons')
+                    regBtn.textContent='Register'
+                    homeBtnsDiv.appendChild(regBtn)
+
+
+
+        //FOOTER 
+        const footerDiv = document.createElement('div')
+        footerDiv.setAttribute('class',"container absolute bg-dark whole-footer")
+        bodyHTML.appendChild(footerDiv)
+
+            const footerTag = document.createElement('footer')
+            footerDiv.appendChild(footerTag)
+
+                const list = document.createElement('ul')
+                list.setAttribute('class',"nav justify-content-center border-bottom pb-3 mb-3")
+                footerTag.appendChild(list)
+
+                    const listElement1 = document.createElement('li')
+                    listElement1.setAttribute('class',"nav-item")
+                    list.appendChild(listElement1)
+
+                        const aTag1 = document.createElement('a')
+                        aTag1.setAttribute('href',"#")
+                        aTag1.setAttribute('class',"nav-link px-2")
+                        aTag1.setAttribute('style',"color:white")
+                        aTag1.textContent = 'Home'
+                        listElement1.appendChild(aTag1)
+                
+                    const listElement2 = document.createElement('li')
+                    listElement2.setAttribute('class',"nav-item")
+                    list.appendChild(listElement2)
+
+                        const aTag2 = document.createElement('a')
+                        aTag2.setAttribute('href',"#")
+                        aTag2.setAttribute('class',"nav-link px-2")
+                        aTag2.setAttribute('style',"color:white")
+                        aTag2.textContent = 'Features'
+                        listElement2.appendChild(aTag2)
+
+                    const listElement3 = document.createElement('li')
+                    listElement3.setAttribute('class',"nav-item")
+                    list.appendChild(listElement3)
+
+                        const aTag3 = document.createElement('a')
+                        aTag3.setAttribute('href',"#")
+                        aTag3.setAttribute('class',"nav-link px-2")
+                        aTag3.setAttribute('style',"color:white")
+                        aTag3.textContent = 'FAQs'
+                        listElement3.appendChild(aTag3)
+
+                    const listElement4 = document.createElement('li')
+                    listElement4.setAttribute('class',"nav-item")
+                    list.appendChild(listElement4)
+
+                        const aTag4 = document.createElement('a')
+                        aTag4.setAttribute('href',"#")
+                        aTag4.setAttribute('class',"nav-link px-2")
+                        aTag4.setAttribute('style',"color:white")
+                        aTag4.textContent = 'About'
+                        listElement4.appendChild(aTag4)
+
+                const footerPTag = document.createElement('p')
+                footerPTag.setAttribute('class',"text-center")
+                footerPTag.setAttribute('style',"color:white")
+                footerPTag.textContent='© 2022 GroupName, Inc'
+                footerTag.appendChild(footerPTag)
 }
 
 function renderLoginForm() {
-  body.innerHTML = `<nav class="navbar navbar-light bg-dark py-3">
-    <div class="container-fluid">
-        <a class="navbar-brand" style="margin:auto; color:white">Group Name</a>
-    </div>
-</nav>
+    const bodyHTML =  document.querySelector('body')
+    bodyHTML.innerHTML=''
+    //NAV
+    const nav = document.createElement('nav')
+    nav.setAttribute('class', 'navbar navbar-light bg-dark py-3')
+    bodyHTML.appendChild(nav)
 
-<section class = "login-form">
-    <form class="padding" >
-        <div class="py-3">
-             <h2>Login</h2>
-        </div>
-        <div>
-            <input type="email"  class="form-control" name="email" placeholder="Email" required>
-        </div>
-        <div class="py-3" class="form-control">
-            <input type="password"  class="form-control" name="password_set" placeholder="Password" required>
-      
-        </div>   
-        <div class="py-1">
-            <button type="submit" class="btn btn-primary" id="login-submit" style="width:100%" >Sign in</button> 
-        </div>
-    </form>
-</section>
 
-<div class="container absolute bg-dark whole-footer" >
-    <footer class="my-4">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="#" class="nav-link px-2"  style="color:white">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 "  style="color:white">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 "  style="color:white">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 "  style="color:white">About</a></li>
-      </ul>
-      <p class="text-center"  style="color:white">© 2022 GroupName, Inc</p>
-    </footer>
-</div>`;
+        const navDiv = document.createElement('div')
+        navDiv.setAttribute('class', 'container-fluid')
+        nav.appendChild(navDiv)
+
+            const aTagTitle = document.createElement('a')
+            aTagTitle.setAttribute('class', `navbar-brand`)
+            aTagTitle.setAttribute('style', `margin:auto; color:white`)
+            aTagTitle.textContent= 'Group Name'
+            navDiv.appendChild(aTagTitle)
+
+            //SECTION 
+            const logSection = document.createElement('section')
+            logSection.setAttribute('class', 'login-form')
+            bodyHTML.appendChild(logSection)
+
+                const logFormTag = document.createElement('form')
+                logFormTag.setAttribute('class', 'padding')
+                logSection.appendChild(logFormTag)
+
+                    const formTitleDiv = document.createElement('div')
+                    formTitleDiv.setAttribute('class', 'py-3')
+                    logFormTag.appendChild(formTitleDiv)
+
+                        const formTitle = document.createElement('h2')
+                        formTitle.textContent='Login'
+                        formTitleDiv.appendChild(formTitle)
+
+                    const emailDiv = document.createElement('div')
+                    logFormTag.appendChild(emailDiv)
+
+                        const emailInput = document.createElement('input')
+                        emailInput.setAttribute('type', 'email')
+                        emailInput.setAttribute('class', 'form-control')
+                        emailInput.setAttribute('name', 'email')
+                        emailInput.setAttribute('placeholder', 'Email')
+                        emailInput.setAttribute('required', '')
+                        emailDiv.appendChild(emailInput)
+
+                    const passDiv = document.createElement('div')
+                    passDiv.setAttribute('class', 'py-3 ')
+                    logFormTag.appendChild(passDiv)
+
+                        const passInput = document.createElement('input')
+                        passInput.setAttribute('type', 'password')
+                        passInput.setAttribute('class', 'form-control')
+                        passInput.setAttribute('name', 'password_set')
+                        passInput.setAttribute('placeholder', 'Password')
+                        passInput.setAttribute('required', '')
+                        passDiv.appendChild(passInput)
+
+                    const logBtnDiv = document.createElement('div')
+                    logBtnDiv.setAttribute('class', 'py-1')
+                    logFormTag.appendChild(logBtnDiv)
+
+                        const logBtn = document.createElement('button')
+                        logBtn.setAttribute('type', 'submit')
+                        logBtn.setAttribute('class', 'btn btn-primary')
+                        logBtn.setAttribute('id', 'login-submit')
+                        logBtn.setAttribute('style', 'width:100%')
+                        logBtn.textContent='Sign in'
+                        logBtnDiv.appendChild(logBtn)
+
+    //FOOTER 
+    const footerDiv = document.createElement('div')
+    footerDiv.setAttribute('class',"container absolute bg-dark whole-footer")
+    bodyHTML.appendChild(footerDiv)
+
+        const footerTag = document.createElement('footer')
+        footerDiv.appendChild(footerTag)
+
+            const list = document.createElement('ul')
+            list.setAttribute('class',"nav justify-content-center border-bottom pb-3 mb-3")
+            footerTag.appendChild(list)
+
+                const listElement1 = document.createElement('li')
+                listElement1.setAttribute('class',"nav-item")
+                list.appendChild(listElement1)
+
+                    const aTag1 = document.createElement('a')
+                    aTag1.setAttribute('href',"#")
+                    aTag1.setAttribute('class',"nav-link px-2")
+                    aTag1.setAttribute('style',"color:white")
+                    aTag1.textContent = 'Home'
+                    listElement1.appendChild(aTag1)
+            
+                const listElement2 = document.createElement('li')
+                listElement2.setAttribute('class',"nav-item")
+                list.appendChild(listElement2)
+
+                    const aTag2 = document.createElement('a')
+                    aTag2.setAttribute('href',"#")
+                    aTag2.setAttribute('class',"nav-link px-2")
+                    aTag2.setAttribute('style',"color:white")
+                    aTag2.textContent = 'Features'
+                    listElement2.appendChild(aTag2)
+
+                const listElement3 = document.createElement('li')
+                listElement3.setAttribute('class',"nav-item")
+                list.appendChild(listElement3)
+
+                    const aTag3 = document.createElement('a')
+                    aTag3.setAttribute('href',"#")
+                    aTag3.setAttribute('class',"nav-link px-2")
+                    aTag3.setAttribute('style',"color:white")
+                    aTag3.textContent = 'FAQs'
+                    listElement3.appendChild(aTag3)
+
+                const listElement4 = document.createElement('li')
+                listElement4.setAttribute('class',"nav-item")
+                list.appendChild(listElement4)
+
+                    const aTag4 = document.createElement('a')
+                    aTag4.setAttribute('href',"#")
+                    aTag4.setAttribute('class',"nav-link px-2")
+                    aTag4.setAttribute('style',"color:white")
+                    aTag4.textContent = 'About'
+                    listElement4.appendChild(aTag4)
+
+            const footerPTag = document.createElement('p')
+            footerPTag.setAttribute('class',"text-center")
+            footerPTag.setAttribute('style',"color:white")
+            footerPTag.textContent='© 2022 GroupName, Inc'
+            footerTag.appendChild(footerPTag)
+            
+
   const login = document.querySelector("form");
   login.addEventListener("submit", submitLoginForm);
 }
 
 function renderRegisterForm() {
-  body.innerHTML = `<nav class="navbar navbar-light bg-dark py-3">
-    <div class="container-fluid">
-        <a class="navbar-brand" style="margin:auto; color:white">Group Name</a>
-    </div>
-</nav>
+    const bodyHTML =  document.querySelector('body')
+     bodyHTML.innerHTML=''
+    //NAV
 
-<section class = "register-form">
-    <form class="padding" >
-        <div class="py-3">
-             <h2>Register</h2>
-        </div>
-        <div class="py-2">
-            <input type="text"  class="form-control" name="username" placeholder="Username" required>
-        </div>
-        <div class="py-2">
-            <input type="email"  class="form-control" name="email" placeholder="Email" required>
-        </div>
-        <div class="py-2">
-            <input type="password"  class="form-control" name="password_set" placeholder="Password" required>
-        </div>   
-        <div class="py-2">
-            <input type="password"  class="form-control" name="Password2" placeholder="Confirm Password" required>
-        </div> 
-        <div class="py-2">
-            <button type="submit" class="btn btn-primary" id="submit" style="width:100%">Register</button> 
-        </div>
-    </form>
-</section>
+     const nav = document.createElement('nav')
+    nav.setAttribute('class', 'navbar navbar-light bg-dark py-3')
+    bodyHTML.appendChild(nav)
 
-<div class="container absolute bg-dark whole-footer" >
-    <footer class="my-4">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="#" class="nav-link px-2"  style="color:white">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 "  style="color:white">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 "  style="color:white">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 "  style="color:white">About</a></li>
-      </ul>
-      <p class="text-center"  style="color:white">© 2022 GroupName, Inc</p>
-    </footer>
-</div>`;
+
+        const navDiv = document.createElement('div')
+        navDiv.setAttribute('class', 'container-fluid')
+        nav.appendChild(navDiv)
+
+            const aTagTitle = document.createElement('a')
+            aTagTitle.setAttribute('class', `navbar-brand`)
+            aTagTitle.setAttribute('style', `margin:auto; color:white`)
+            aTagTitle.textContent= 'Group Name'
+            navDiv.appendChild(aTagTitle)
+    //SECTION 
+    const regSection = document.createElement('section')
+    regSection.setAttribute('class', 'register-form')
+    bodyHTML.appendChild(regSection)
+
+        const regFormTag = document.createElement('form')
+        regFormTag.setAttribute('class', 'padding')
+        regSection.appendChild(regFormTag)
+
+            const formTitleDiv = document.createElement('div')
+            formTitleDiv.setAttribute('class', 'py-3')
+            regFormTag.appendChild(formTitleDiv)
+
+                const formTitle = document.createElement('h2')
+                formTitle.textContent='Register'
+                formTitleDiv.appendChild(formTitle)
+
+            const userDiv = document.createElement('div')
+            userDiv.setAttribute('class', 'py-2')
+            regFormTag.appendChild(userDiv)
+
+                const userInput = document.createElement('input')
+                userInput.setAttribute('type', 'text')
+                userInput.setAttribute('class', 'form-control')
+                userInput.setAttribute('name', 'username')
+                userInput.setAttribute('placeholder', 'Username')
+                userInput.setAttribute('required', '')
+                userDiv.appendChild(userInput)
+
+            const emailDiv = document.createElement('div')
+            emailDiv.setAttribute('class', 'py-2')
+            regFormTag.appendChild(emailDiv)
+
+                const emailInput = document.createElement('input')
+                emailInput.setAttribute('type', 'email')
+                emailInput.setAttribute('class', 'form-control')
+                emailInput.setAttribute('name', 'email')
+                emailInput.setAttribute('placeholder', 'Email')
+                emailInput.setAttribute('required', '')
+                emailDiv.appendChild(emailInput)
+
+            const passDiv = document.createElement('div')
+            passDiv.setAttribute('class', 'py-2')
+            regFormTag.appendChild(passDiv)
+
+                const passInput = document.createElement('input')
+                passInput.setAttribute('type', 'password')
+                passInput.setAttribute('class', 'form-control')
+                passInput.setAttribute('name', 'password_set')
+                passInput.setAttribute('placeholder', 'Password')
+                passInput.setAttribute('required', '')
+                passDiv.appendChild(passInput)
+
+            const pass2Div = document.createElement('div')
+            pass2Div.setAttribute('class', 'py-2')
+            regFormTag.appendChild(pass2Div)
+
+                const pass2Input = document.createElement('input')
+                pass2Input.setAttribute('type', 'password')
+                pass2Input.setAttribute('class', 'form-control')
+                pass2Input.setAttribute('name', 'Password2')
+                pass2Input.setAttribute('placeholder', 'Confirm Password')
+                pass2Input.setAttribute('required', '')
+                pass2Div.appendChild(pass2Input)
+
+            const regBtnDiv = document.createElement('div')
+            regBtnDiv.setAttribute('class', 'py-2')
+            regFormTag.appendChild(regBtnDiv)
+
+                const regBtn = document.createElement('button')
+                regBtn.setAttribute('type', 'submit')
+                regBtn.setAttribute('class', 'btn btn-primary')
+                regBtn.setAttribute('id', 'submit')
+                regBtn.setAttribute('style', 'width:100%')
+                regBtn.textContent='Register'
+                regBtnDiv.appendChild(regBtn)
+
+    //FOOTER 
+    const footerDiv = document.createElement('div')
+    footerDiv.setAttribute('class',"container absolute bg-dark whole-footer")
+    bodyHTML.appendChild(footerDiv)
+
+        const footerTag = document.createElement('footer')
+        footerDiv.appendChild(footerTag)
+
+            const list = document.createElement('ul')
+            list.setAttribute('class',"nav justify-content-center border-bottom pb-3 mb-3")
+            footerTag.appendChild(list)
+
+                const listElement1 = document.createElement('li')
+                listElement1.setAttribute('class',"nav-item")
+                list.appendChild(listElement1)
+
+                    const aTag1 = document.createElement('a')
+                    aTag1.setAttribute('href',"#")
+                    aTag1.setAttribute('class',"nav-link px-2")
+                    aTag1.setAttribute('style',"color:white")
+                    aTag1.textContent = 'Home'
+                    listElement1.appendChild(aTag1)
+            
+                const listElement2 = document.createElement('li')
+                listElement2.setAttribute('class',"nav-item")
+                list.appendChild(listElement2)
+
+                    const aTag2 = document.createElement('a')
+                    aTag2.setAttribute('href',"#")
+                    aTag2.setAttribute('class',"nav-link px-2")
+                    aTag2.setAttribute('style',"color:white")
+                    aTag2.textContent = 'Features'
+                    listElement2.appendChild(aTag2)
+
+                const listElement3 = document.createElement('li')
+                listElement3.setAttribute('class',"nav-item")
+                list.appendChild(listElement3)
+
+                    const aTag3 = document.createElement('a')
+                    aTag3.setAttribute('href',"#")
+                    aTag3.setAttribute('class',"nav-link px-2")
+                    aTag3.setAttribute('style',"color:white")
+                    aTag3.textContent = 'FAQs'
+                    listElement3.appendChild(aTag3)
+
+                const listElement4 = document.createElement('li')
+                listElement4.setAttribute('class',"nav-item")
+                list.appendChild(listElement4)
+
+                    const aTag4 = document.createElement('a')
+                    aTag4.setAttribute('href',"#")
+                    aTag4.setAttribute('class',"nav-link px-2")
+                    aTag4.setAttribute('style',"color:white")
+                    aTag4.textContent = 'About'
+                    listElement4.appendChild(aTag4)
+
+            const footerPTag = document.createElement('p')
+            footerPTag.setAttribute('class',"text-center")
+            footerPTag.setAttribute('style',"color:white")
+            footerPTag.textContent='© 2022 GroupName, Inc'
+            footerTag.appendChild(footerPTag)
+
   const register = document.querySelector("form");
   register.addEventListener("submit", submitRegisterForm);
 }
@@ -379,23 +653,87 @@ async function renderFeed() {
 }
 
 function render404() {
-  body.innerHTML = `<nav class="navbar navbar-light bg-dark py-3">
-    <div class="container-fluid">
-        <a class="navbar-brand" style="margin:auto; color:white">Group Name</a>
-    </div>
-</nav>
+    const bodyHTML =  document.querySelector('body')
+    bodyHTML.innerHTML=''
+    //NAV
+    const nav = document.createElement('nav')
+    nav.setAttribute('class', 'navbar navbar-light bg-dark py-3')
+    bodyHTML.appendChild(nav)
 
-<h1> Oops! Page not Found </h2>
 
-<div class="container absolute bg-dark whole-footer" >
-    <footer class="my-4">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="#" class="nav-link px-2"  style="color:white">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 "  style="color:white">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 "  style="color:white">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 "  style="color:white">About</a></li>
-      </ul>
-      <p class="text-center"  style="color:white">© 2022 GroupName, Inc</p>
-    </footer>
-</div>`;
+        const navDiv = document.createElement('div')
+        navDiv.setAttribute('class', 'container-fluid')
+        nav.appendChild(navDiv)
+
+            const aTagTitle = document.createElement('a')
+            aTagTitle.setAttribute('class', `navbar-brand`)
+            aTagTitle.setAttribute('style', `margin:auto; color:white`)
+            aTagTitle.textContent= 'Group Name'
+            navDiv.appendChild(aTagTitle)
+
+    //SECTION 
+    const notFoundError = document.createElement('h1')
+    notFoundError.textContent='Oops! Page not Found'
+    bodyHTML.appendChild(notFoundError)
+    //FOOTER 
+    const footerDiv = document.createElement('div')
+    footerDiv.setAttribute('class',"container absolute bg-dark whole-footer")
+    bodyHTML.appendChild(footerDiv)
+
+        const footerTag = document.createElement('footer')
+        footerDiv.appendChild(footerTag)
+
+            const list = document.createElement('ul')
+            list.setAttribute('class',"nav justify-content-center border-bottom pb-3 mb-3")
+            footerTag.appendChild(list)
+
+                const listElement1 = document.createElement('li')
+                listElement1.setAttribute('class',"nav-item")
+                list.appendChild(listElement1)
+
+                    const aTag1 = document.createElement('a')
+                    aTag1.setAttribute('href',"#")
+                    aTag1.setAttribute('class',"nav-link px-2")
+                    aTag1.setAttribute('style',"color:white")
+                    aTag1.textContent = 'Home'
+                    listElement1.appendChild(aTag1)
+            
+                const listElement2 = document.createElement('li')
+                listElement2.setAttribute('class',"nav-item")
+                list.appendChild(listElement2)
+
+                    const aTag2 = document.createElement('a')
+                    aTag2.setAttribute('href',"#")
+                    aTag2.setAttribute('class',"nav-link px-2")
+                    aTag2.setAttribute('style',"color:white")
+                    aTag2.textContent = 'Features'
+                    listElement2.appendChild(aTag2)
+
+                const listElement3 = document.createElement('li')
+                listElement3.setAttribute('class',"nav-item")
+                list.appendChild(listElement3)
+
+                    const aTag3 = document.createElement('a')
+                    aTag3.setAttribute('href',"#")
+                    aTag3.setAttribute('class',"nav-link px-2")
+                    aTag3.setAttribute('style',"color:white")
+                    aTag3.textContent = 'FAQs'
+                    listElement3.appendChild(aTag3)
+
+                const listElement4 = document.createElement('li')
+                listElement4.setAttribute('class',"nav-item")
+                list.appendChild(listElement4)
+
+                    const aTag4 = document.createElement('a')
+                    aTag4.setAttribute('href',"#")
+                    aTag4.setAttribute('class',"nav-link px-2")
+                    aTag4.setAttribute('style',"color:white")
+                    aTag4.textContent = 'About'
+                    listElement4.appendChild(aTag4)
+
+            const footerPTag = document.createElement('p')
+            footerPTag.setAttribute('class',"text-center")
+            footerPTag.setAttribute('style',"color:white")
+            footerPTag.textContent='© 2022 GroupName, Inc'
+            footerTag.appendChild(footerPTag)
 }
