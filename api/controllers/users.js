@@ -56,11 +56,11 @@ async function login(req, res) {
 }
 
 function verifyToken(req, res, next) {
-  // console.log('verifyToken function called')
+  console.log('verifyToken function called')
   const header = req.headers["authorization"];
   if (header) {
     const token = header.split(" ")[1];
-    jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, () => {
+    jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, data) => {
       //removed (err, data)
       if (err) {
         res.status(403).json({ err: "Token not verified" });

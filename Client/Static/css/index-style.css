@@ -8,7 +8,8 @@
 
 body{
   background: linear-gradient(to top left, #2842b4, #6fb8d5);
-  height: 100vh;
+  height: auto;
+
 }
 
 
@@ -42,11 +43,11 @@ body > nav > div > a {
   margin: 1rem 0rem 1rem 0rem;
   color:white; 
 }
-/* 
+
 .absolute{
-  position: absolute;
+  /* position:sticky; */
   bottom: 0px;
-} */
+}
 
 /* LOGIN PAGE */
 
@@ -111,7 +112,49 @@ nav{
   padding-right: 10px;
 }
 
+.eachHabitDisplayed{
+  display:flex;
+  padding-bottom:10px;
+  justify-content: space-evenly;
+  min-height:auto;
+}
 
+.text-center{
+  margin-bottom:0px;
+  padding-bottom:15px;
+}
+
+.eachHabitContainer{
+  justify-content: space-between;
+  text-align: center;
+  background:rgb(33,37,41,0.8); 
+  color:white; 
+  padding:0.5rem; 
+  border-radius: 10px; 
+  margin:0px 10px; 
+  width:100%; 
+  justify-content: center;
+}
+
+.row {
+  align-items: center;
+}
+
+.habitDeleteBtn{
+  padding-left: 13.5px;
+  padding-right:13.5px;
+
+}
+
+.habitSection{
+  margin-left:10px;
+  margin-right:10px;
+
+}
+
+.col{
+  padding:0px 3px;
+}
 
 @media screen and (min-width: 400px) {
   .home-buttons-area {
@@ -148,9 +191,13 @@ nav{
   }
 
   .habitSection{
-    display:flex;
+    display:grid;
     padding:10px;
     justify-content: center;
+  }
+
+  .eachHabitDisplayed{
+    width:150%;
   }
 } 
 

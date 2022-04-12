@@ -4,7 +4,7 @@ const habitController = require("../controllers/habits");
 const {createUser, login, verifyToken} = require('../controllers/users')
 
 router.post("/", habitController.createHabit);
-router.get("/:email", verifyToken, habitController.filterHabitsByEmail);
+router.get("/:email", habitController.filterHabitsByEmail);
 router.delete("/entry/:id", habitController.deleteHabit);
 router.get("/entry/:id", habitController.findHabitById);
 

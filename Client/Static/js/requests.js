@@ -19,6 +19,7 @@ async function submitHabit() {
     };
     const r = await fetch("http://localhost:3000/habits/", options);
     const data = await r.json();
+    console.log(data)
     // window.location.hash="#feed"
   } catch (err) {
     console.log("Failed to add Habit");
@@ -35,6 +36,6 @@ const getEmail = localStorage.getItem('email')
 async function getAllPosts(){
     const r = await fetch (`http://localhost:3000/habits/${getEmail}`)
     const r_json = r.json()
-    // console.log(r_json)
+    console.log(r_json)
     return r_json
 }

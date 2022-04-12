@@ -13,6 +13,7 @@ async function createHabit(req, res) {
 
 async function filterHabitsByEmail(req, res) {
   try {
+    console.log('filter by email functionc alled')
     const habit = await Habit.filterHabitsByEmail(req.params);
     res.status(200).send(habit);
   } catch (err) {
