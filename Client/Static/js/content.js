@@ -414,7 +414,10 @@ async function renderFeed() {
 
   const submitHabitBtn = document.createElement("button");
   submitHabitBtn.setAttribute("type", "submit");
-  submitHabitBtn.setAttribute("class", "btn btn-primary add-habit-btn");
+  submitHabitBtn.setAttribute(
+    "class",
+    "btn btn-primary add-habit-btn add-habit-form"
+  );
   submitHabitBtn.setAttribute("id", "add-habitsubmit");
   submitHabitBtn.textContent = "Add Habit";
   submitHabitBtnDiv.appendChild(submitHabitBtn);

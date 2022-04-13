@@ -203,6 +203,20 @@ h2 {
   font-size: 22px;
 }
 
+.register-if-no-sign {
+  text-align: center;
+  margin-top: 15px;
+}
+.no-login-div {
+  text-align: center;
+}
+.add-habit-form {
+  margin-top: 10px;
+}
+
+#logoutBtn {
+  margin: 0;
+}
 @media screen and (min-width: 400px) {
   /* html,
 body {
