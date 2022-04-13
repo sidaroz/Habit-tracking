@@ -29,13 +29,10 @@ function updateMain(path) {
 
 function updateContent() {
   const path = window.location.hash;
-  console.log(path)
-  const checkEmail = localStorage.getItem('email')
+  const checkEmail = localStorage.getItem("email");
   if (privateRoutes.includes(path) && !checkEmail) {
-    console.log('if fired')
     window.location.hash = "#";
   } else {
-    console.log('else fired')
     updateMain(path);
   }
 }

@@ -22,11 +22,9 @@ async function submitRegisterForm(e) {
   const register = document.querySelector("form");
   const formData = new FormData(register);
   const formDataObj = Object.fromEntries(formData);
-  console.log(formDataObj);
 
   if (formDataObj.password_set === formDataObj.Password2) {
     delete formDataObj["Password2"];
-    console.log("Register Information Submitted");
     try {
       options = {
         method: "POST",
@@ -50,10 +48,9 @@ function storeLoginData(token) {
   localStorage.setItem("username", user.username);
   localStorage.setItem("email", user.email);
   window.location.hash = "#feed";
-  const bodyHTML = document.querySelector('body')
-  bodyHTML.innerHTML=''
+  const bodyHTML = document.querySelector("body");
+  bodyHTML.innerHTML = "";
 }
-
 
 function logout() {
   localStorage.clear();

@@ -21,7 +21,6 @@ async function createUser(req, res) {
 async function login(req, res) {
   try {
     let user = await User.findByEmail(req.body.email);
-    console.log(req.body);
     if (!user) {
       throw new Error("No user with this email");
     }
@@ -34,7 +33,7 @@ async function login(req, res) {
       jwt.sign(
         payload,
         process.env.ACCESS_SECRET_TOKEN,
-        { expiresIn: 60 },
+        { expiresIn: 1200 },
         sendToken
       );
       function sendToken(err, token) {
@@ -55,22 +54,4 @@ async function login(req, res) {
   }
 }
 
-function verifyToken(req, res, next) {
-  console.log('verifyToken function called')
-  const header = req.headers["authorization"];
-  if (header) {
-    const token = header.split(" ")[1];
-    jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, data) => {
-      //removed (err, data)
-      if (err) {
-        res.status(403).json({ err: "Token not verified" });
-      } else {
-        next();
-      }
-    });
-  } else {
-    res.sendStatus(403).json({ error: "Missing token" });
-  }
-}
-
-module.exports = { createUser, login, verifyToken };
+module.exports = { createUser, login };

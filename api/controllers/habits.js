@@ -2,9 +2,7 @@ const Habit = require("../models/habit");
 
 async function createHabit(req, res) {
   try {
-    console.log(typeof +req.body.repetition);
     const habit = await Habit.createHabit(req.body);
-    console.log(habit);
     res.status(201).send({ habit });
   } catch (err) {
     res.status(500).json({ msg: "Habit could not be created!" });
@@ -13,7 +11,6 @@ async function createHabit(req, res) {
 
 async function filterHabitsByEmail(req, res) {
   try {
-    console.log('filter by email functionc alled')
     const habit = await Habit.filterHabitsByEmail(req.params);
     res.status(200).send(habit);
   } catch (err) {
@@ -30,19 +27,17 @@ async function findHabitById(req, res) {
   }
 }
 
-async function increaseRepCounter(req, res){
-  try{
+async function increaseRepCounter(req, res) {
+  try {
     // const habit = await Habit.findHabitById(req.params)
     // console.log(habit)
-    const result = await Habit.increaseRepCounter(req.params.id)
-    console.log(result)
-    res.status(200).send(result)
-  }
-  catch(err){
-    res.status(500).json({msg:"loser"})
+    const result = await Habit.increaseRepCounter(req.params.id);
+    console.log(result);
+    res.status(200).send(result);
+  } catch (err) {
+    res.status(500).json({ msg: "loser" });
   }
 }
-
 
 async function deleteHabit(req, res) {
   try {
@@ -58,5 +53,5 @@ module.exports = {
   filterHabitsByEmail,
   findHabitById,
   deleteHabit,
-  increaseRepCounter
+  increaseRepCounter,
 };

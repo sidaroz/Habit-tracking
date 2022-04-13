@@ -1,4 +1,5 @@
 const db = require("../db_config/config");
+const dayjs = require("dayjs");
 
 class Habit {
   constructor(data) {
@@ -55,9 +56,10 @@ class Habit {
     return new Promise(async (res, rej) => {
       try {
         const { email } = data;
-        let result = await db.query(`SELECT * FROM habits WHERE email = $1 ORDER BY id DESC;`, [
-          email,
-        ]);
+        let result = await db.query(
+          `SELECT * FROM habits WHERE email = $1 ORDER BY id DESC;`,
+          [email]
+        );
         let habits = result.rows;
         res(habits);
       } catch (err) {
@@ -69,7 +71,6 @@ class Habit {
   static findHabitById(id) {
     return new Promise(async (res, rej) => {
       try {
-        // const { id } = data;
         let result = await db.query(`SELECT * FROM habits WHERE id = $1;`, [
           id,
         ]);
@@ -82,29 +83,28 @@ class Habit {
     });
   }
 
-  static increaseRepCounter(id){
-    return new Promise (async (res, rej)=>{
-      try{
-        console.log('method called')
-        const findHabit = await Habit.findHabitById(id)
-        console.log(findHabit)
-
+  static increaseRepCounter(id) {
+    return new Promise(async (res, rej) => {
+      try {
         // if(findHabit.cur_repetition === findHabit.repetition && ){
         //   const increaseStreak = await db.query(`UPDATE habits set streak = streak+1 WHERE id=$1;`, [id])
         //   const resetRep = await db.query(`UPDATE habits set cur_repetition = 0 WHERE id=$1;`, [id])
-        // }else 
-        if(findHabit.cur_repetition === findHabit.repetition){
-          res('cannot update')
-        }else{
-          const increaseCount = await db.query(`UPDATE habits SET cur_repetition = cur_repetition+1 WHERE id =$1;`, [id])
+        // }else
+        const findHabit = await Habit.findHabitById(id);
+        if (findHabit.cur_repetition === findHabit.repetition) {
+          res("cannot update");
+        } else {
+          const increaseCount = await db.query(
+            `UPDATE habits SET cur_repetition = cur_repetition+1 WHERE id =$1;`,
+            [id]
+          );
           // const organiseTable =  db.query(`SELECT * from habits ORDER BY id ASC;`)
-          res('Counter succesfully increased')
+          res("Counter succesfully increased");
         }
+      } catch (err) {
+        rej("Failed to update the counter in the database");
       }
-      catch(err){
-        rej("Failed to update the counter in the database")
-      }
-    })
+    });
   }
 
   static deleteHabit(id) {
@@ -122,3 +122,10 @@ class Habit {
 }
 
 module.exports = Habit;
+
+// const dayOfYear = require("dayjs/plugin/dayOfYear");
+// dayjs().format();
+// // const day = dayjs.extend(duration);
+// // const randomNum = dayjs().add(dayjs.duration({ days: 1 }));
+// console.log(typeof parseInt(dayjs().add(1, "day").format("DD")));
+// console.log(dayjs().format("DD"));
