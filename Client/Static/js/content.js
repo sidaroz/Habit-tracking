@@ -416,7 +416,7 @@ async function renderFeed() {
   submitHabitBtn.setAttribute("type", "submit");
   submitHabitBtn.setAttribute(
     "class",
-    "btn btn-primary add-habit-btn add-habit-form"
+    "btn btn-primary add-habit-btn add-habit-form-btn"
   );
   submitHabitBtn.setAttribute("id", "add-habitsubmit");
   submitHabitBtn.textContent = "Add Habit";
