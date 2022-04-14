@@ -91,8 +91,9 @@ class Habit {
         const dateCreated = findHabit.date_now;
         const actualDateCreated = dateCreated.replaceAll('"', "");
         let dateNow = dayjs();
-        console.log(dateNow.diff(actualDateCreated, "day"));
+
         if (
+          findHabit.frequency === "Daily" &&
           findHabit.repetition - findHabit.cur_repetition === 1 &&
           (dateNow.diff(actualDateCreated, "day") <= 1 ||
             dateNow.diff(actualDateCreated, "day") === 0)
@@ -105,7 +106,52 @@ class Habit {
             `UPDATE habits SET cur_repetition = cur_repetition+1 WHERE id =$1;`,
             [id]
           );
-          res("streak gone up");
+          res("Daily streak gone up");
+        } else if (
+          findHabit.frequency === "Weekly" &&
+          findHabit.repetition - findHabit.cur_repetition === 1 &&
+          (dateNow.diff(actualDateCreated, "week") <= 1 ||
+            dateNow.diff(actualDateCreated, "week") === 0)
+        ) {
+          const increaseStreak = await db.query(
+            `UPDATE habits set streak = streak+1 WHERE id=$1;`,
+            [id]
+          );
+          const increaseCount = await db.query(
+            `UPDATE habits SET cur_repetition = cur_repetition+1 WHERE id =$1;`,
+            [id]
+          );
+          res("Weekly streak gone up");
+        } else if (
+          findHabit.frequency === "Monthly" &&
+          findHabit.repetition - findHabit.cur_repetition === 1 &&
+          (dateNow.diff(actualDateCreated, "month") <= 1 ||
+            dateNow.diff(actualDateCreated, "month") === 0)
+        ) {
+          const increaseStreak = await db.query(
+            `UPDATE habits set streak = streak+1 WHERE id=$1;`,
+            [id]
+          );
+          const increaseCount = await db.query(
+            `UPDATE habits SET cur_repetition = cur_repetition+1 WHERE id =$1;`,
+            [id]
+          );
+          res("Monthly streak gone up");
+        } else if (
+          findHabit.frequency === "Yearly" &&
+          findHabit.repetition - findHabit.cur_repetition === 1 &&
+          (dateNow.diff(actualDateCreated, "year") <= 1 ||
+            dateNow.diff(actualDateCreated, "year") === 0)
+        ) {
+          const increaseStreak = await db.query(
+            `UPDATE habits set streak = streak+1 WHERE id=$1;`,
+            [id]
+          );
+          const increaseCount = await db.query(
+            `UPDATE habits SET cur_repetition = cur_repetition+1 WHERE id =$1;`,
+            [id]
+          );
+          res("Yearly streak gone up");
         } else if (findHabit.repetition === findHabit.cur_repetition) {
           const resetRep = await db.query(
             `UPDATE habits set cur_repetition = 0 WHERE id=$1;`,
