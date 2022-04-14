@@ -16,6 +16,7 @@ CREATE TABLE habits (
     repetition int NOT NULL,
     cur_repetition int NOT NULL,
     streak int NOT NULL,
-    frequency varchar NOT NULL
+    frequency varchar NOT NULL,
+    date_now varchar NOT NULL
 );
 
